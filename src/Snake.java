@@ -84,7 +84,7 @@ class Game extends JPanel
 			}
 			Object[] options = { "Yes", "No", "Cancel" };
 			int choice = -1;
-			if(gameOver && choice == -1) choice = JOptionPane.showOptionDialog(Snake.frame, "Game Over! Your score was " + (score) + ". Play again?", "Game Over", 1, 3, null, options, options[2]);
+			if(gameOver) choice = JOptionPane.showOptionDialog(Snake.frame, "Game Over! Your score was " + (score) + ". Play again?", "Game Over", 1, 3, null, options, options[2]);
 			if(choice == 0) newGame();
 		}
 	};
@@ -370,26 +370,18 @@ class Game extends JPanel
 				if(key == KeyEvent.VK_DOWN && direction != 2 && !paused)
 				{
 					direction = 0;
-					go = false;
-					move();
 				}
 				else if(key == KeyEvent.VK_RIGHT && direction != 3 && !paused)
 				{
 					direction = 1;
-					go = false;
-					move();
 				}
 				else if(key == KeyEvent.VK_UP && direction != 0 && !paused)
 				{
 					direction = 2;
-					go = false;
-					move();
 				}
 				else if(key == KeyEvent.VK_LEFT && direction != 1 && !paused)
 				{
 					direction = 3;
-					go = false;
-					move();
 				}
 				if(key == KeyEvent.VK_SPACE || key == KeyEvent.VK_P) paused = (paused) ? false : true;
 			}
